@@ -2,9 +2,6 @@
 #
 # Copyright 2007
 # Martin Okorodudu <martin.omatsola@gmail.com>
-# Parinya Thipchart <thipchart@gmail.com>
-# Danilo Gonzalez
-# Zhi Zhuang
 #
 # This software may be freely redistributed under the terms of the GNU
 # general public license.
