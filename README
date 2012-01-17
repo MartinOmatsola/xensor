@@ -1,0 +1,56 @@
+ABOUT
+-----
+Xensor aims to automate the installation of several flavors of linux as a guest OS in
+a Xen environment. 
+
+
+REQUIREMENTS
+------------
+debootstrap >= 0.2.45
+
+
+USAGE INSTRUCTIONS
+------------------
+
+Usage: ./xensor-install.py [options]
+
+
+Options are in the format listed below
+
+	--name 			the name of your domU
+	--distro		the linux distribution eg ubuntu, debian, gentoo
+	--release		the release e.g. etch, sarge
+	--memory		the RAM in MB
+	--size			the disk image size in GB
+	--filesystem	the fs of the disk image eg ext2, ext3
+	--kernel		absolute path to xen kernel to use for domU
+	--location		the install location to retrieve files for base system
+	--image			absolute path to the disk image to use for domU
+	--swap			absolute path to the swap image to use for domU
+	--swapsize		the swap image size in MB	
+
+If you do not specify an option above, defaults will be used. The defaults are
+
+	--name			domU
+	--distro		debian
+	--release		etch
+	--memory		128
+	--size			4GB
+	--filesystem	ext3
+	--kernel		/boot/vmlinuz-2.6.19-1.2911.6.5.fc6xen
+	--location		http://ftp.egr.msu.edu/debian
+	--image			/var/lib/xen/images/{NAME}.img where NAME is determined by the --name option
+	--swap			/var/lib/xen/images/{NAME}-swp.img
+	--swapsize		2 * MEM where MEM is determined by the --memory option	
+	
+Example: ./xensor-install.py --name web-server --distro ubuntu --release feisty \
+			--location http://archive.ubuntu.com/ubuntu
+
+This will install a guest ubuntu feisty domain.
+
+	
+TODO
+----
+Currently xensor only supports Debian and Ubuntu guest installations. We are looking
+to expand to other distros such as Fedora Core, Gentoo and Solaris.
+
